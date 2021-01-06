@@ -1,6 +1,7 @@
 package com.everis.fingerprints.app.service.impl;
 
-import com.everis.fingerprints.app.dto.Person;
+import com.everis.fingerprints.app.model.Dummy;
+import com.everis.fingerprints.app.model.Person;
 import com.everis.fingerprints.app.repository.FingerPrintsRepository;
 import com.everis.fingerprints.app.service.IFingerPrintsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,9 @@ public class FingerPrintsServiceImpl implements IFingerPrintsService {
      * @return savePersonConsumer.
      */
     @Override
-    public Mono<Person> savePersonConsumer(final Person person) {
-        return repository.savePerson(person);
+    public Mono<Dummy> savePersonConsumer(final Person person) {
+        return repository.savePerson(person)
+                .filter(p -> !p.getBlacklist() && p.getFingerprint())
+                .map(per -> new Dummy("Core", true));
     }
-
 }

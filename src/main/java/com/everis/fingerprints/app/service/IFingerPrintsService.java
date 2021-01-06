@@ -1,6 +1,7 @@
 package com.everis.fingerprints.app.service;
 
-import com.everis.fingerprints.app.dto.Person;
+import com.everis.fingerprints.app.model.Dummy;
+import com.everis.fingerprints.app.model.Person;
 import reactor.core.publisher.Mono;
 
 public interface IFingerPrintsService {
@@ -9,5 +10,5 @@ public interface IFingerPrintsService {
      * @param person
      * @return savePersonConsumer.
      */
-    Mono<Person> savePersonConsumer(Person person);
+    Mono<Dummy> savePersonConsumer(Person person);
 }

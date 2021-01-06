@@ -1,4 +1,4 @@
-package com.everis.fingerprints.app.dto;
+package com.everis.fingerprints.app.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
